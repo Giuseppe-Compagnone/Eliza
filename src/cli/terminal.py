@@ -5,7 +5,7 @@ Handles user input/output loop and interacts with ElizaInterpreter.
 """
 
 import os
-from ..engine import ScriptLoader, ElizaInterpreter
+from engine import ScriptLoader, ElizaInterpreter
 
 def main():
     # Build path to the doctor.txt script relative to this file

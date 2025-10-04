@@ -5,7 +5,7 @@ Cleans and tokenizes user input, applies pre-substitutions.
 """
 
 import re
-from ..utils import clean_text, split_sentences
+from utils import clean_text, split_sentences
 
 class Parser:
     def __init__(self, pre_subs=None):

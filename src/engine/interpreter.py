@@ -11,7 +11,7 @@ import re
 from .reflector import reflect
 from .parser import Parser
 from .memory import Memory
-from ..utils import clean_text
+from utils import clean_text
 
 class ElizaInterpreter:
     def __init__(self, script_data):
