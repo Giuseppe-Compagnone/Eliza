@@ -84,15 +84,3 @@ class ScriptLoader:
             "synon": dict(self.synon),
             "keywords": self.keywords
         }
-
-
-if __name__ == "__main__":
-    loader = ScriptLoader("src/scripts/doctor.txt")
-    script = loader.load_script()
-    print("Initial:", script["initial"])
-    print("Final:", script["final"])
-    print("Quit words:", script["quit"])
-    print("Pre substitutions:", script["pre"])
-    print("Post substitutions:", script["post"])
-    print("Synonyms:", script["synon"])
-    print("Keywords:", list(script["keywords"].keys()))
