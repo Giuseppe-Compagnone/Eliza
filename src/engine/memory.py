@@ -1,10 +1,9 @@
 # src/engine/memory.py
 """
 Memory module for ELIZA.
-Stores and retrieves sentences to simulate 'memory' from the original DOCTOR script.
+Stores and retrieves sentences in FIFO order, simulating the original DOCTOR memory.
 """
 
-import random
 from collections import deque
 
 class Memory:
@@ -13,11 +12,12 @@ class Memory:
         Initialize memory with optional maximum size.
         """
         self.max_size = max_size
-        self.store = deque(maxlen=max_size)  # automatic discard of oldest
+        self.store = deque(maxlen=max_size)  # oldest sentences discarded automatically
 
     def remember(self, sentence):
         """
         Add a sentence to memory.
+        Strips whitespace and ignores empty strings.
         """
         sentence = sentence.strip()
         if sentence:
@@ -25,9 +25,15 @@ class Memory:
 
     def recall(self):
         """
-        Retrieve a random sentence from memory.
+        Retrieve the oldest sentence from memory.
         Returns None if memory is empty.
         """
-        if not self.store:
-            return None
-        return random.choice(self.store)
+        if self.store:
+            return self.store.popleft()  # remove from memory when recalled
+        return None
+
+    def is_empty(self):
+        """
+        Check if memory is empty.
+        """
+        return len(self.store) == 0
