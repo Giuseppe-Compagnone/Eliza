@@ -8,13 +8,14 @@ ELIZA is a historic chatbot simulating a psychotherapist using pattern matching 
 
 ## 2. Architecture
 
-eliza/
-│
-├── src/
-│ ├── engine/
-│ ├── scripts/
-│ ├── cli/
-│ └── utils/
+```text
+Eliza/
+    ├── src/
+    │ ├── engine/
+    │ ├── scripts/
+    │ ├── cli/
+    │ └── utils/
+```
 
 ### Engine (`src/engine`)
 
