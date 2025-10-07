@@ -3,7 +3,7 @@ interpreter.py
 ---------------
 The main ELIZA interpreter.
 Takes user input, applies preprocessing via Parser, matches keywords,
-decomposes input, applies reassembly, reflection, and memory, returns output.
+decomposes input, applies reassembly, reflection, returns output.
 """
 
 import random
