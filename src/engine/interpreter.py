@@ -10,7 +10,6 @@ import random
 import re
 from .reflector import reflect
 from .parser import Parser
-from .memory import Memory
 from utils import clean_text
 
 class ElizaInterpreter:
@@ -29,8 +28,6 @@ class ElizaInterpreter:
 
         # Initialize parser for pre-substitutions
         self.parser = Parser(pre_subs=self.pre)
-        # Initialize memory
-        self.memory = Memory(max_size=50)
 
     def preprocess(self, user_input):
         """
@@ -100,17 +97,10 @@ class ElizaInterpreter:
 
         if decomp:
             response = self.reassemble(decomp, groups)
-            # Remember input if pattern starts with $
-            if decomp["pattern"].startswith("$"):
-                self.memory.remember(preprocessed)
+         
             if response is None and self.goto_stack:
                 return self.respond(user_input)
             return response
-
-        # No decomposition matched: try memory
-        mem_response = self.memory.recall()
-        if mem_response:
-            return mem_response
 
         # Fallback to xnone
         decomp, groups = self.decompose("xnone", preprocessed)

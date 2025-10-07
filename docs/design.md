@@ -25,7 +25,6 @@ The core logic of ELIZA:
 - **reflector.py** – handles pronoun substitution (e.g., “I → you”, “my → your”).
 - **script_loader.py** – loads the DOCTOR script into structured data (keywords, decompositions, reassemblies, synonyms, pre/post substitutions).
 - **interpreter.py** – selects the response based on matched keywords, ranks, and decomposition/reassembly rules.
-- **memory.py** – stores prior user inputs and responses for “memory” rules (optional).
 
 ### Scripts (`src/scripts`)
 
@@ -57,9 +56,7 @@ Helper functions:
    - `interpreter.py` searches for keywords according to rank.
 4. **Decomposition & Reassembly**
    - Input is matched to decomposition patterns; responses are generated using reassembly rules and pronoun reflection.
-5. **Memory Handling**
-   - Certain responses may be stored for later reuse (if memory rules apply).
-6. **CLI Interaction**
+5. **CLI Interaction**
    - The response is printed, and loop continues until a quit word is detected.
 
 ---

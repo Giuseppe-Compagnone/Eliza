@@ -82,5 +82,3 @@ key: mother
 - Pre-substitutions are applied before keyword matching.
 
 - Post-substitutions are applied after reassembly and before output.
-
-- Memory rules can optionally store responses for later use (not required for basic DOCTOR script).
